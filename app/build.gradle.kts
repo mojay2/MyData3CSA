@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.mydata3csa"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.mydata3csa"
