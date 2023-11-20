@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/lvEmp"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         />
@@ -78,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="saveRecord"
             android:text="Save" />
 
         <Button
@@ -85,6 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="viewRecord"
             android:text="View" />
 
         <Button
@@ -92,6 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="updateRecord"
             android:text="Update" />
 
         <Button
@@ -99,6 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="deleteRecord"
             android:text="Delete" />
     </LinearLayout>
 </LinearLayout>

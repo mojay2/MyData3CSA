@@ -1,6 +1,7 @@
 package com.example.mydata3csa
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val btnSave = findViewById<Button>(R.id.btnSave)
         val btnView = findViewById<Button>(R.id.btnView)
         val btnClear = findViewById<Button>(R.id.btnClear)
+        val btnSecondActivity = findViewById<Button>(R.id.btnSecondActivity)
         val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
 
         btnSave.setOnClickListener{
@@ -53,6 +55,19 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
             outputId.setText("".toString())
             outputName.setText("".toString())
+        }
+
+        btnSecondActivity.setOnClickListener{
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+
+            // Redirect to activity_second
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+
+            // Finish the current activity if needed
+            finish()
         }
 
     }

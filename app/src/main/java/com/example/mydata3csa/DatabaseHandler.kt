@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object{
@@ -19,14 +20,14 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE "+ TABLE_CONTACTS + "("
-                + KEY_ID + "INTEGER PRIMARY KEY,"
-                + KEY_NAME + "TEXT,"
-                + KEY_EMAIL + "TEXT)")
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_NAME + " TEXT,"
+                + KEY_EMAIL + " )")
         db?.execSQL(CREATE_CONTACTS_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS)
+        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
         onCreate(db)
     }
 
@@ -108,7 +109,7 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME
         return empList
     }
 
-    fun updateEmplyee(emp:EmpModelClass):Int{
+    fun updateEmployee(emp:EmpModelClass):Int{
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(KEY_ID, emp.userId)

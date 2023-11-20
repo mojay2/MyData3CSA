@@ -11,5 +11,5 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Enter Id to Delete" />
+        android:hint="Enter Id to Delete" />
 </LinearLayout>
