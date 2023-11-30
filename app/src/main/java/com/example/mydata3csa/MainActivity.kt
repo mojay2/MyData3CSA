@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val btnClear = findViewById<Button>(R.id.btnClear)
         val btnSecondActivity = findViewById<Button>(R.id.btnSecondActivity)
         val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        val btnThirdActivity = findViewById<Button>(R.id.btnThirdActivity)
 
         btnSave.setOnClickListener{
             val id:Int = Integer.parseInt(inputId.text.toString())
@@ -63,12 +64,22 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
 
             // Redirect to activity_second
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(this, ThirdActivity::class.java)
             startActivity(intent)
 
             // Finish the current activity if needed
             finish()
         }
+
+        btnThirdActivity.setOnClickListener{
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+
+            // Finish the current activity if needed
+//            finish()
+        }
+
+
 
     }
 }
